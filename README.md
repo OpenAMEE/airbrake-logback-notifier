@@ -20,6 +20,11 @@ Example Airbrake Appender logback.xml
         <param name="enabled" value="true"/>
         <param name="endpoint" value="airbrake.io/notifier_api/v2/notices"/>
         <param name="secure" value="false"/>
+
+        <!-- deny all events with a level below ERROR, that is TRACE, DEBUG, INFO -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
     </appender>
 
 Note: `endpoint` and `secure` params are shown with default values and may be omitted.
