@@ -1,18 +1,17 @@
-Airbrake Notifier for Java
-==========================
+Airbrake (was Hoptoad) Notifier for Logback
+===========================================
 
-A fork of Luca Marrocco's [hoptoad notifier](http://code.google.com/p/hoptoad/).
+A fork of [AMEE / hoptoad-java-notifier](https://github.com/AMEE/hoptoad-java-notifier) which is a fork of Luca Marrocco's [hoptoad notifier](http://code.google.com/p/hoptoad/).
 
 Licensed under the Apache License, Version 2.0.
 
 
 Code Changes
 ------------
-* endpoint configuration property added. Defaults to new API end point (airbrake.io/notifier_api/v2/notices).
-* secure configuration property added. Defaults to false.
+* Modified to work with [Logback](http://logback.qos.ch/) instead of log4j.
 
 
-Example Airbrake Appender log4j.xml
+Example Airbrake Appender logback.xml
 -----------------------------------
 
     <appender name="AIRBRAKE" class="hoptoad.HoptoadAppender">
