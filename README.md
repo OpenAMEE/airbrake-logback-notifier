@@ -15,11 +15,11 @@ Example Airbrake Appender logback.xml
 -----------------------------------
 
     <appender name="AIRBRAKE" class="hoptoad.HoptoadAppender">
-        <param name="api_key" value="YOUR_API_KEY_HERE"/>
-        <param name="env" value="production"/>
-        <param name="enabled" value="true"/>
-        <param name="endpoint" value="airbrake.io/notifier_api/v2/notices"/>
-        <param name="secure" value="false"/>
+        <apiKey>YOUR_API_KEY_HERE</apiKey>
+        <env>production</env>
+        <enabled>true</enabled>
+        <endpoint>airbrake.io/notifier_api/v2/notices</endpoint>
+        <secure>false</secure>
 
         <!-- deny all events with a level below ERROR, that is TRACE, DEBUG, INFO -->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">

@@ -23,12 +23,16 @@ public class HoptoadAppender extends AppenderBase<ILoggingEvent> {
 
     private boolean secure = false;
 
+    public HoptoadAppender() {
+        super();
+    }
+
     public HoptoadAppender(final String apiKey) {
-        setApi_key(apiKey);
+        setApiKey(apiKey);
     }
 
     public HoptoadAppender(final String apiKey, final Backtrace backtrace) {
-        setApi_key(apiKey);
+        setApiKey(apiKey);
         setBacktrace(backtrace);
     }
 
@@ -53,7 +57,9 @@ public class HoptoadAppender extends AppenderBase<ILoggingEvent> {
     }
 
     @Override
-    public void stop() {}
+    public void stop() {
+        super.stop();
+    }
 
 	public HoptoadNotice newNoticeFor(final IThrowableProxy throwable) {
 		return new HoptoadNoticeBuilderUsingFilteredSystemProperties(apiKey, backtrace, throwable, env).newNotice();
@@ -63,7 +69,7 @@ public class HoptoadAppender extends AppenderBase<ILoggingEvent> {
 		return hoptoadNotifier.notify(newNoticeFor(throwable(loggingEvent)), endpoint, secure);
 	}
 
-    public void setApi_key(final String apiKey) {
+    public void setApiKey(final String apiKey) {
         this.apiKey = apiKey;
     }
 
